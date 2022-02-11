@@ -169,8 +169,8 @@ main() {
 
     TLS_PRIVATE_KEY=$(cat "$SERVER_KEY" | base64 -w 0) \
         TLS_CERTIFICATE="$TLS_CERTIFICATE" \
-        #CA_BUNDLE="$($KUBECTL config view --raw --minify --flatten -o jsonpath='{.clusters[].cluster.certificate-authority-data}')" \
-        CA_BUNDLE="$(cat ca-master.pem|base64 -w 0)" \
+        CA_BUNDLE="$($KUBECTL config view --raw --minify --flatten -o jsonpath='{.clusters[].cluster.certificate-authority-data}')" \
+        #CA_BUNDLE="$(cat ca-master.pem|base64 -w 0)" \
         RBAC_ROLE_NAME="$NAMESPACE-$NAME-rbac-role" \
         NAME="$NAME" \
         NAMESPACE="$NAMESPACE" \
